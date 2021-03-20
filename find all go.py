@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[23]:
-
-
 import re
 
 #findname function：find the row that has the same geneid with the fisrt row,and return to a list that contain same geneid
@@ -80,6 +77,8 @@ with open('1.txt','r') as f:
         genelist.append(i)
 f.close()
 genelist=genelist[1:]
+
+#2.txt is the go database file
 with open('2.txt','r') as f:
     godatabasefile=[]
     for i in f:
@@ -90,6 +89,7 @@ for i in range(len(godatabasefile)):
 
 test=findsamego(genelist)
 
+#main function
 for i in test:
     ori_go="id:"
     ori_go=ori_go+" "+i
@@ -97,25 +97,9 @@ for i in test:
     final=findrelgo(sub,test)
 
 
-# In[24]:
-
 
 final
 
-
-# In[12]:
-
-
-
-
-
-# In[7]:
-
-
-
-
-
-# In[ ]:
 
 
 
