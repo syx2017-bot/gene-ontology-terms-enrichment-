@@ -75,8 +75,8 @@ f.close()
 genelist=genelist[1:]
 
 #creat the dataset of godatabase file
-path_godatabase=os.path.join(WORK_DIR,'2.txt')
-with open('2.txt','r') as f:
+path_godatabase=os.path.join(WORK_DIR,'godatabase.txt')
+with open(path_godatabase,'r') as f:
     godatabasefile=[]
     for i in f:
         godatabasefile.append(i)
