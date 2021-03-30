@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[109]:
-
-
 import pandas as pd
 import os
 import re
@@ -153,10 +150,6 @@ def hypergeometric_distribution(target_go_list,dic_count_diff,dic_count_total,nu
         dic_final[i]=p_value
     return dic_final
 
-
-# In[18]:
-
-
 #remove redundancy information like genes that hasn't been go annotated and columns like log2c_change
 gene_expression_red=remove_redundancy_infor(gene_expression_read_file)
 #create a copy:one for the analysis of dofferential expression genes,another for the total genes
@@ -186,64 +179,5 @@ dic_count_diff=counter_go(go_dif_set,go_dif)
 dic_count_total=counter_go(go_dif_set,total_gene)
 #out put the final p_value
 result=hypergeometric_distribution(go_dif_set,dic_count_diff,dic_count_total,number_total_genes,number_differential_genes)
-
-
-# In[112]:
-
-
-
-
-
-# In[30]:
-
-
-comb(3556,611)
-
-
-# In[20]:
-
-
-len(total_ori)
-
-
-# In[37]:
-
-
-dic_count_total
-
-
-# In[38]:
-
-
-dic_count_diff
-
-
-# In[108]:
-
-
-rrr=t[:592]
-
-
-# In[94]:
-
-
-rrr
-
-
-# In[104]:
-
-
-number_total_genes
-
-
-# In[113]:
-
-
-final
-
-
-# In[ ]:
-
-
 
 
