@@ -104,6 +104,11 @@ for i in genelist:
     genelist=sub_genelist(genelist,num)
 f.close()    
 
-
+#output the result
+f = open('output.txt', 'a+')
+for i in result:
+    f.write(str(i))
+    f.write("\n")
+f.close()
 
 
