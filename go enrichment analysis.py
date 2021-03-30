@@ -149,6 +149,9 @@ def hypergeometric_distribution(target_go_list,dic_count_diff,dic_count_total,nu
         p_value=1-sum_p
         dic_final[i]=p_value
     return dic_final
+#sort the go terms according to the p_value
+def sort_final(final_dic):
+    return sorted(final_dic.items(),key=lambda item:item[1])
 
 #remove redundancy information like genes that hasn't been go annotated and columns like log2c_change
 gene_expression_red=remove_redundancy_infor(gene_expression_read_file)
@@ -178,6 +181,7 @@ dic_count_diff=counter_go(go_dif_set,go_dif)
 #count the number of total genes in each go term
 dic_count_total=counter_go(go_dif_set,total_gene)
 #out put the final p_value
-result=hypergeometric_distribution(go_dif_set,dic_count_diff,dic_count_total,number_total_genes,number_differential_genes)
-
+final=hypergeometric_distribution(go_dif_set,dic_count_diff,dic_count_total,number_total_genes,number_differential_genes)
+#sort the go terms according to the p_value
+final_file=sort_final(final)
 
