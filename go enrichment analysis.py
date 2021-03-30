@@ -7,7 +7,7 @@ import re
 import math
 
 #your work path
-WORK_DIR='E:\\组学重构'
+WORK_DIR='...\omics'
 #load the expression data file 
 gene_expression_path=os.path.join(WORK_DIR,'gene_expression.csv')
 gene_expression_read_file=pd.read_csv(gene_expression_path,engine='python')#when the path contain Chinese,engine='python'is needed
