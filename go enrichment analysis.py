@@ -149,9 +149,20 @@ def hypergeometric_distribution(target_go_list,dic_count_diff,dic_count_total,nu
         p_value=1-sum_p
         dic_final[i]=p_value
     return dic_final
+
 #sort the go terms according to the p_value
 def sort_final(final_dic):
     return sorted(final_dic.items(),key=lambda item:item[1])
+
+#use p_value=0.05 as truncation to select the go terms that has been enrichment in the differential expression genes
+def generate_result(sorted_file):
+    count_go_row=0
+    for i in range(len(sorted_file)):
+        if sorted_file[i][1]>=0.05:
+            break
+        else:
+            count_go_row+=1
+    return sorted_file[:count_go_row]
 
 #remove redundancy information like genes that hasn't been go annotated and columns like log2c_change
 gene_expression_red=remove_redundancy_infor(gene_expression_read_file)
@@ -184,4 +195,6 @@ dic_count_total=counter_go(go_dif_set,total_gene)
 final=hypergeometric_distribution(go_dif_set,dic_count_diff,dic_count_total,number_total_genes,number_differential_genes)
 #sort the go terms according to the p_value
 final_file=sort_final(final)
+#use p_value=0.05 as truncation to select the go terms that has been enrichment in the differential expression genes
+result=generate_result(final_file)
 
