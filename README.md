@@ -17,4 +17,4 @@
 
 (3)已有条件：基因表达数据(格式如gene_expression.csv)，go数据库文件(下载地址：http://current.geneontology.org/ontology/go-basic.obo）
 
-(4)输出：
+(4)输出：有显著性差异的go及其p值
